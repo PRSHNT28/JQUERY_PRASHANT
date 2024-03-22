@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Editor</title>
+</head>
+<body>
+    <h1>Edit Card</h1>
+    <form id="editForm" action="#" method="POST">
+        <label for="nameInput">Card Name:</label>
+        <input type="text" id="nameInput" name="name">
+        <label for="descriptionInput">Card Description:</label>
+        <input type="text" id="descriptionInput" name="description">
+        <label for="levelInput">Card Level:</label>
+        <input type="text" id="levelInput" name="level">
+        <label for="pointInput">Card Point:</label>
+        <input type="text" id="pointInput" name="point">
+        <label for="imageURLInput">Card Image URL:</label>
+        <input type="text" id="imageURLInput" name="imageURL">
+        <button type="submit">Save Changes</button>
+    </form>
+
+    <script>
+        document.getElementById('editForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+            
+            for (var pair of formData.entries()) {
+                console.log(pair[0]+ ': ' + pair[1]);
+            }
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>
